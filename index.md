@@ -23,7 +23,7 @@ This documentation is structured to help you start from the basics and move towa
 1. **Getting Started**: Learn how to set up and begin using the SWAT Project.
 2. **Features**: Dive into the features and capabilities of our project.
 3. **Advanced Topics**: Explore advanced use cases and customization options.
-4. **Internal Documentation**: Our Javadoc can be found [here](/docs/javadoc/)
+4. **Internal Documentation**: Our Javadoc can be found [here](/javadoc/)
 4. **FAQs**: Find answers to commonly asked questions.
 
 ## Contributing
