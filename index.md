@@ -1,35 +1,55 @@
 ---
-title: Home
-layout: home
+layout: default
+title: Getting Started
+nav_order: 1
 ---
 
-This is a *bare-minimum* template to create a Jekyll site that uses the [Just the Docs] theme. You can easily set the created site to be published on [GitHub Pages] – the [README] file explains how to do that, along with other details.
+# SWAT Project Documentation
 
-If [Jekyll] is installed on your computer, you can also build and preview the created site *locally*. This lets you test changes before committing them, and avoids waiting for GitHub Pages.[^1] And you will be able to deploy your local build to a different platform than GitHub Pages.
+Welcome to the SWAT Project Documentation! This guide is designed to help you get familiar with our project, understand its features, and learn how to use it effectively.
 
-More specifically, the created site:    
+## What is the SWAT Project?
 
-- uses a gem-based approach, i.e. uses a `Gemfile` and loads the `just-the-docs` gem
-- uses the [GitHub Pages / Actions workflow] to build and publish the site on GitHub Pages
+"SWAT (Symbolic Web Application Testing platform)" is a cutting-edge, modular software testing platform designed for comprehensive web application testing. It stands out with its unique feature of using SMT-lib as an abstraction layer, allowing for compatibility with multiple solvers. Built using a diverse array of technologies like Python, Java, Docker, and more, SWAT is versatile and robust, catering to a wide range of testing scenarios. Its loosely coupled modules can be used either independently or collectively, offering unparalleled flexibility..
 
-Other than that, you're free to customize sites that you create with this template, however you like. You can easily change the versions of `just-the-docs` and Jekyll it uses, as well as adding further plugins.
+## Getting Started
 
-[Browse our documentation][Just the Docs] to learn more about how to use this theme.
+---
 
-To get started with creating a site, simply:
+## Navigation
 
-1. click "[use this template]" to create a GitHub repository
-2. go to Settings > Pages > Build and deployment > Source, and select GitHub Actions
+This documentation is structured to help you start from the basics and move towards more advanced topics:
 
-If you want to maintain your docs in the `docs` directory of an existing project repo, see [Hosting your docs from an existing project repo](https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md#hosting-your-docs-from-an-existing-project-repo) in the template README.
+1. **Getting Started**: Learn how to set up and begin using the SWAT Project.
+2. **Features**: Dive into the features and capabilities of our project.
+3. **Advanced Topics**: Explore advanced use cases and customization options.
+4. **Internal Documentation**: Our Javadoc can be found [here](/docs/javadoc/)
+4. **FAQs**: Find answers to commonly asked questions.
 
-----
+## Contributing
 
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
+Contributions are always welcome! Please follow these steps:
+1. Fork the project repository. This creates a copy of the project on your account that you can modify without affecting the original project.
+2. Clone the forked repository to your local machine using a Git client like Git or GitHub Desktop.
+3. Create a new branch with a descriptive name (e.g., `new-feature-branch` or `bugfix-issue-123`).
+```sh
+git checkout -b new-feature-branch
+```
+4. Make changes to the project's codebase.
+5. Commit your changes to your local branch with a clear commit message that explains the changes you've made.
+```sh
+git commit -m 'Implemented new feature.'
+```
+6. Push your changes to your forked repository on GitHub using the following command
+```sh
+git push origin new-feature-branch
+```
+7. Create a new pull request to the original project repository. In the pull request, describe the changes you've made and why they're necessary.
+The project maintainers will review your changes and provide feedback or merge them into the main branch.
 
-[Just the Docs]: https://just-the-docs.github.io/just-the-docs/
-[GitHub Pages]: https://docs.github.com/en/pages
-[README]: https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md
-[Jekyll]: https://jekyllrb.com
-[GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
-[use this template]: https://github.com/just-the-docs/just-the-docs-template/generate
+
+We're excited to have you here and hope this documentation helps you effectively utilize the SWAT Project!
+
+---
+
+© 2024 SWAT Project. All rights reserved.

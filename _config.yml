@@ -2,7 +2,9 @@ title: SWAT Documentation
 description: Documentation for the SWAT project
 theme: just-the-docs
 
+logo: "/assets/images/logo.png"
+
 url: https://swat-project.github.io/docs
 
 aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
+  Github Repository: https://github.com/swat-project/SWAT
