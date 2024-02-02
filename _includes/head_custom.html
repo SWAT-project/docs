@@ -1,0 +1,42 @@
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggleDarkModeButton = document.querySelector('.js-toggle-dark-mode');
+        const savedTheme = localStorage.getItem('themeMode');
+        const themeImages = document.querySelectorAll('.excalidraw');
+
+        function updateImageStyle() {
+            themeImages.forEach((img) => {
+                if (img === null) return;
+                if (jtd.getTheme() === 'dark') {
+                    img.classList.add('dark-mode-img');
+                } else {
+                    img.classList.remove('dark-mode-img');
+                }
+            });
+        }
+
+        if (savedTheme) {
+            jtd.setTheme(savedTheme);
+            toggleDarkModeButton.textContent = savedTheme === 'dark' ? 'Light mode' : 'Dark mode';
+            updateImageStyle();
+        }
+
+        jtd.addEvent(toggleDarkModeButton, 'click', function () {
+            let themeToSet;
+            if (jtd.getTheme() === 'dark' || jtd.getTheme() === 'default') {
+                themeToSet = 'light';
+                toggleDarkModeButton.textContent = 'Dark mode';
+            } else {
+                themeToSet = 'dark';
+                toggleDarkModeButton.textContent = 'Light mode';
+            }
+            jtd.setTheme(themeToSet);
+            localStorage.setItem('themeMode', themeToSet);
+            updateImageStyle();
+        });
+    });
+
+</script>
+
+
+

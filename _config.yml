@@ -1,8 +1,57 @@
-title: SWAT Documentation
+title: SWAT
+logo: "/assets/images/swat_logo.pdf"
 description: Documentation for the SWAT project
 theme: just-the-docs
 
 url: https://swat-project.github.io/docs
 
 aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
+  SWAT Repository: https://github.com/SWAT-project/SWAT
+
+
+
+# Color scheme supports "light" (default) and "dark"
+color_scheme: dark
+
+# Callouts
+callouts:
+  highlight:
+    title: Note
+    color: yellow
+    #opacity: 0.8
+# usage:
+#    {: .warning }
+#    A paragraph...
+
+# Enables code copying per button
+enable_copy_code_button: true
+
+# Footer content appears at the bottom of every page's main content
+footer_content: "Copyright &copy; 2023 Institute for IT Security, University of Lübeck and Nils Loose. Distributed by a <a href=\"https://github.com/SWAT-project/SWAT/blob/main/LICENSE\">2-Clause BSD License.</a>"
+# Footer last edited timestamp
+last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
+last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html
+
+# Footer "Edit this page on GitHub" link text
+gh_edit_link: true # show or hide edit this page link
+gh_edit_link_text: "Edit this page on GitHub."
+gh_edit_repository: "https://github.com/SWAT-project/docs"
+gh_edit_branch: "main" # the branch that your docs is served from
+# gh_edit_source: docs # the source that your files originate from
+gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately
+
+
+# External links in the navbar
+nav_external_links:
+  - title: SWAT on GitHub
+    url: https://github.com/SWAT-project/SWAT
+    hide_icon: false # set to true to hide the external link icon - defaults to false
+    opens_in_new_tab: true # set to true to open this link in a new tab - defaults to false
+  - title: Institute for IT Security
+    url: https://www.its.uni-luebeck.de/en/institute
+    hide_icon: false # set to true to hide the external link icon - defaults to false
+    opens_in_new_tab: true # set to true to open this link in a new tab - defaults to false
+  - title: Javadoc
+    url: https://swat-project.github.io/docs/javadoc/
+    hide_icon: false # set to true to hide the external link icon - defaults to false
+    opens_in_new_tab: true # set to true to open this link in a new tab - defaults to false

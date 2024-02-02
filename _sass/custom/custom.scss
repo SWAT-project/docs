@@ -1,0 +1,9 @@
+.dark-mode-img {
+  filter: invert(100%) hue-rotate(180deg);
+}
+
+.excalidraw {
+  width: 100%; /* or a specific size */
+  height: auto; /* maintain aspect ratio */
+  display: block; /* prevent inline spacing issues */
+}
