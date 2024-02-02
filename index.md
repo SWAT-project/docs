@@ -8,7 +8,7 @@ nav_order: 1
 This documentation is still undergoing construction, if you find any issues or have any suggestions, please feel free to
 open an [issue] or [reach out] to me.
 <div style="overflow: auto;">
-  <img src="/assets/images/swat_logo.pdf" alt="SWAT Logo" style="float: left; margin-right: 20px; max-width: 100%; height: auto;">
+  <img src="https://swat-project.github.io/docs/assets/images/swat_logo.pdf" alt="SWAT Logo" style="float: left; margin-right: 20px; max-width: 100%; height: auto;">
   <h2>SWAT (Symbolic Web Application Testing)</h2>
     <p>
         SWAT is a loosely coupled dynamic symbolic execution engine for Java applications. 

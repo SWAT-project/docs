@@ -7,7 +7,7 @@
         function updateImageStyle() {
             themeImages.forEach((img) => {
                 if (img === null) return;
-                if (jtd.getTheme() === 'dark') {
+                if (jtd.getTheme() === 'dark' || jtd.getTheme() === 'default') {
                     img.classList.add('dark-mode-img');
                 } else {
                     img.classList.remove('dark-mode-img');
