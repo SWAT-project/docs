@@ -18,8 +18,8 @@
         if (savedTheme) {
             jtd.setTheme(savedTheme);
             toggleDarkModeButton.textContent = savedTheme === 'dark' ? 'Light mode' : 'Dark mode';
-            updateImageStyle();
         }
+        updateImageStyle();
 
         jtd.addEvent(toggleDarkModeButton, 'click', function () {
             let themeToSet;
