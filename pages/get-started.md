@@ -59,4 +59,4 @@ consequently gain new instantiations of the symbolic variables that lead to unex
 This mode pairs well with, i.e., HTTP fuzzers. Here the fuzzer has to be adapted to receive new values for the fuzzable
 variables from the symbolic explorer. 
 
-[Active Mode]: https://swat-project.github.io/docs/pages/get-started/active-mode.html
+[Active Mode]: /docs/pages/get-started/active-mode.html

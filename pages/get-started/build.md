@@ -45,7 +45,7 @@ de/uzl/its/tests/I2X/I2S(I)I :: Inputs: [I_35, -2147483648] -> Solutions: [I_35:
 A detailed explanation of the entire output of this and similar test-cases is provided in the [Tests] section.
 But generally this output indicates that the agent was able to solve the given path and that the solver was able to find a solution. 
 
-[Tests]: /docs/tests
+[Tests]: /docs/pages/tests.html
 
 
 
