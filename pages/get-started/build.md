@@ -5,6 +5,8 @@ parent: Get Started
 nav_order: 1
 ---
 <h1> Building SWAT </h1>
+Getting _SWAT_ up and running requires two separate procedures for the _Executor_ (Java) and the _Explorer_ (Python).
+<h3> Building the Symbolic Executor </h3>
 The _Symbolic Executor_ (Javaagent) is build using [Gradle]. To build the agent run:
 
 ```
@@ -43,12 +45,39 @@ de/uzl/its/tests/I2X/I2S(I)I :: Inputs: [I_35, -2147483648] -> Solutions: [I_35:
 ```
 
 A detailed explanation of the entire output of this and similar test-cases is provided in the [Tests] section.
-But generally this output indicates that the agent was able to solve the given path and that the solver was able to find a solution. 
+But generally this output indicates that the agent was able to solve the given path and that the solver was able to find a solution.
+<h3> Building the Symbolic Explorer </h3>
+As the _Symbolic Explorer_ is written in Python, it does not require a build process.
+However, it does require a number of packages to be installed.
+It is recommended to use a virtual environment to install these packages.
+To create a virtual environment, run the following command in the folder `symbolic-explorer`:
+
+```
+python3 -m venv venv
+```
+
+After activating the virtual environment using `source venv/bin/activate`, the required packages can be installed using pip from the 
+provided `requirements.txt` file:
+
+```
+pip install -r requirements.txt
+```
+
+To test if the installation was successful, one of the examples can be used to see if the communication with the _Symbolic Executor_ works.
+This can be done by running the following command:
+
+```
+./gradew runBasic1
+```
+
+While, again, the output of this command is explained in the [Tests] section, a successful installation will print the following message:
+
+```
+[EXPLORER] Found 1 violations
+[EXPLORER] Violation: ['STRING_0 = SuperSecretString\\\x80\x81\x82\x83#', 'INT_1 = 22']
+```
+
+This indicates that the symbolic exploration terminated successfully and that the desired violation was found.
 
 [Tests]: /docs/pages/tests.html
-
-
-
-
-
 [Gradle]: https://gradle.org
