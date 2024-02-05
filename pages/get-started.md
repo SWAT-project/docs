@@ -45,6 +45,8 @@ When running _SWAT_ in active mode (i.e. for SV-Comp) the symbolic explorer doub
 _SuT_.
 This means that the symbolic explorer directly interacts with the _SuT_ either by sending requests to drive new
 executions or by starting the _SuT_ and providing the new values.
+Correspondingly, the main (symbolic execution) loop is between the symbolic explorer initiation new executions and the instrumented _SuT_ providing new traces and constraints. This is highlighted in green in the above figure. 
+The [Active Mode] page provides a more in-depth explanation of this mode and how to use it. 
 <h3>Passive Mode</h3>
 
 {: .highlight }
@@ -54,5 +56,7 @@ When running _SWAT_ in passive mode, the symbolic explorer is only responsible f
 the execution tree. I addition endpoints are exposed that allow the user/ harness to initiate symbolic exploration and
 consequently gain new instantiations of the symbolic variables that lead to unexplored regions in the _SuT_.
 
-This mode pairs well with, i.e., HTTP fuzzers. Here the fuzzer has to be adapted to recieve new values for the fuzzable
+This mode pairs well with, i.e., HTTP fuzzers. Here the fuzzer has to be adapted to receive new values for the fuzzable
 variables from the symbolic explorer. 
+
+[Active Mode]: https://swat-project.github.io/docs/pages/get-started/active-mode.html

@@ -2,10 +2,10 @@
 layout: default
 title: Active Mode
 parent: Get Started
-nav_order: 1
+nav_order: 2
 ---
+<h1> Active Mode </h1>
 
-In passive mode
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1836.4641766966256 1059.935602268953" width="3672.928353393251" height="2119.871204537906" class="excalidraw">
   <!-- svg-source:excalidraw -->
 
