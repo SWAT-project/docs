@@ -1,0 +1,3 @@
+{ "channel": "dev", "profile": "test", "date": "2026-06-24",
+  "commit": "e634499c035a0ab1151842681e2caf74815cff3b", "short": "e634499", "rundefs": "test-autostub_valid-assert",
+  "generated": "2026-06-24T16:12:04+00:00" }
