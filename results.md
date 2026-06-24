@@ -6,70 +6,77 @@ nav_order: 4
 # SWAT SV-COMP Benchmark Results
 {: .no_toc }
 
-Nightly benchexec runs of SWAT against the SV-COMP Java verification tasks, under the
-official competition limits (15 min / 15 GB / 4 cores). Pick a channel and a run.
+Nightly [benchexec](https://github.com/sosy-lab/benchexec) runs of the latest SWAT against the
+SV-COMP Java verification tasks, under the official competition limits (15 min / 15 GB / 4 cores).
+The chart shows the SV-COMP **score** of each full run per channel (**dev** and **main**); only the
+last 7 runs per channel are kept. Click a run below to open its full results table (with per-task logs).
 {: .fs-5 .fw-300 }
 
-<div id="swat-results">
-  <div style="display:flex; gap:1.5rem; flex-wrap:wrap; align-items:flex-end; margin:1rem 0;">
-    <label>Channel<br><select id="ch-sel" style="min-width:10rem; padding:.3rem;"></select></label>
-    <label>Run (date · commit)<br><select id="run-sel" style="min-width:22rem; padding:.3rem;"></select></label>
-    <span id="run-meta" style="font-size:.9em; opacity:.8;"></span>
-  </div>
-  <p id="status" style="opacity:.7;">Loading runs…</p>
-  <iframe id="tbl" title="benchexec results table" style="width:100%; height:80vh; border:1px solid #444; border-radius:6px; background:#fff;"></iframe>
-</div>
+<div id="score-plot" style="width:100%; height:460px; margin:1rem 0;"></div>
+<p id="rstatus" style="opacity:.7;">Loading score history…</p>
+<div id="runs-list" style="margin-top:1rem;"></div>
 
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
 <script>
 (function () {
-  // Resolve the site base (…/docs/) robustly regardless of the page's permalink.
-  var p = window.location.pathname;
-  var m = p.match(/^(.*\/docs\/)/);
+  var p = window.location.pathname, m = p.match(/^(.*\/docs\/)/);
   var BASE = m ? m[1] : p.replace(/[^/]*$/, "");
   var ASSETS = BASE + "assets/results/";
-  var chSel = document.getElementById("ch-sel"),
-      runSel = document.getElementById("run-sel"),
-      meta = document.getElementById("run-meta"),
-      status = document.getElementById("status"),
-      tbl = document.getElementById("tbl");
-  var RUNS = [];
-
-  function byChannel(ch) { return RUNS.filter(function (r) { return r.channel === ch; }); }
-
-  function loadRun(r) {
-    if (!r) { tbl.removeAttribute("src"); meta.textContent = ""; return; }
-    tbl.src = BASE + r.path;
-    meta.textContent = (r.profile ? "[" + r.profile + "] " : "") + (r.rundefs || "");
-  }
-
-  function fillRuns(ch) {
-    runSel.innerHTML = "";
-    byChannel(ch).forEach(function (r, i) {
-      var o = document.createElement("option");
-      o.value = i;
-      o.textContent = r.date + " · " + (r.short || (r.commit || "").slice(0, 7));
-      runSel.appendChild(o);
-    });
-    runSel.selectedIndex = 0;
-    loadRun(byChannel(ch)[0]);
-  }
+  var COLOR = { dev: "#4c9be8", main: "#2ecc71" };
+  var statusEl = document.getElementById("rstatus");
 
   fetch(ASSETS + "manifest.json", { cache: "no-store" })
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (data) {
-      RUNS = data.runs || [];
-      if (!RUNS.length) { status.textContent = "No runs published yet."; return; }
-      status.textContent = "";
+      var runs = (data.runs || []);
+      if (!runs.length) { statusEl.textContent = "No runs published yet."; return; }
+      statusEl.textContent = "";
+
       var channels = [];
-      RUNS.forEach(function (r) { if (channels.indexOf(r.channel) < 0) channels.push(r.channel); });
-      channels.forEach(function (c) {
-        var o = document.createElement("option"); o.value = c; o.textContent = c; chSel.appendChild(o);
+      runs.forEach(function (r) { if (channels.indexOf(r.channel) < 0) channels.push(r.channel); });
+
+      var traces = channels.map(function (ch) {
+        var rs = runs.filter(function (r) { return r.channel === ch; });
+        return {
+          name: ch, mode: "lines+markers", type: "scatter",
+          x: rs.map(function (r) { return r.generated || r.date; }),
+          y: rs.map(function (r) { return r.score; }),
+          line: { color: COLOR[ch] || undefined, width: 2 },
+          marker: { size: 8 },
+          text: rs.map(function (r) {
+            return r.short + " · correct " + r.correct + "/" + r.total +
+                   " (✗true " + r.incorrect_true + ", ? " + r.unknown + ")" +
+                   (r.profile === "test" ? " [test]" : "");
+          }),
+          hovertemplate: "<b>%{x|%Y-%m-%d}</b><br>score %{y}<br>%{text}<extra>" + ch + "</extra>"
+        };
       });
-      chSel.value = channels[0];
-      fillRuns(channels[0]);
-      chSel.addEventListener("change", function () { fillRuns(chSel.value); });
-      runSel.addEventListener("change", function () { loadRun(byChannel(chSel.value)[runSel.value]); });
+
+      var fg = "#bdc1c6", grid = "rgba(128,128,128,0.25)";
+      Plotly.newPlot("score-plot", traces, {
+        margin: { t: 20, r: 20, b: 50, l: 60 },
+        paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)",
+        font: { color: fg },
+        xaxis: { title: "run", type: "date", gridcolor: grid, zeroline: false },
+        yaxis: { title: "SV-COMP score", gridcolor: grid, zerolinecolor: grid },
+        legend: { orientation: "h", y: 1.12 },
+        hovermode: "closest"
+      }, { responsive: true, displayModeBar: false });
+
+      // drill-down list (newest first) per channel
+      var html = "";
+      channels.forEach(function (ch) {
+        var rs = runs.filter(function (r) { return r.channel === ch; }).slice().reverse();
+        html += "<h3>" + ch + "</h3><ul>";
+        rs.forEach(function (r) {
+          html += '<li><a href="' + BASE + r.path + '" target="_blank" rel="noopener">' +
+                  r.date + " · " + r.short + "</a> — score <b>" + r.score + "</b>, correct " +
+                  r.correct + "/" + r.total + (r.profile === "test" ? " <em>(test)</em>" : "") + "</li>";
+        });
+        html += "</ul>";
+      });
+      document.getElementById("runs-list").innerHTML = html;
     })
-    .catch(function (e) { status.textContent = "Could not load results manifest (" + e + ")."; });
+    .catch(function (e) { statusEl.textContent = "Could not load results manifest (" + e + ")."; });
 })();
 </script>
