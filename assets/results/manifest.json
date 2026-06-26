@@ -2,6 +2,26 @@
   "runs": [
     {
       "channel": "dev",
+      "profile": "full",
+      "date": "2026-06-25",
+      "commit": "cdf7c4aaaf9fda64721e2884db0ffb7ec8e8010d",
+      "short": "cdf7c4a",
+      "rundefs": "SV-COMP27_valid-assert,SV-COMP27_no-runtime-exception",
+      "generated": "2026-06-26T12:23:54+00:00",
+      "total": 1782,
+      "correct": 930,
+      "correct_true": 455,
+      "correct_false": 475,
+      "incorrect": 2,
+      "incorrect_true": 0,
+      "incorrect_false": 2,
+      "unknown": 850,
+      "score": 1353,
+      "score_max": 2825,
+      "path": "assets/results/dev/2026-06-25_cdf7c4a/table.html"
+    },
+    {
+      "channel": "dev",
       "profile": "test",
       "date": "2026-06-24",
       "commit": "e634499c035a0ab1151842681e2caf74815cff3b",
