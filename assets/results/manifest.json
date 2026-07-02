@@ -3,6 +3,26 @@
     {
       "channel": "dev",
       "profile": "full",
+      "date": "2026-07-01",
+      "commit": "54dd68d454cc8731bf992f30b14d481bdee17cd2",
+      "short": "54dd68d",
+      "rundefs": "SV-COMP27_valid-assert,SV-COMP27_no-runtime-exception",
+      "generated": "2026-07-02T12:11:42+00:00",
+      "total": 1782,
+      "correct": 932,
+      "correct_true": 457,
+      "correct_false": 475,
+      "incorrect": 2,
+      "incorrect_true": 0,
+      "incorrect_false": 2,
+      "unknown": 848,
+      "score": 1357,
+      "score_max": 2825,
+      "path": "assets/results/dev/2026-07-01_54dd68d/table.html"
+    },
+    {
+      "channel": "dev",
+      "profile": "full",
       "date": "2026-06-29",
       "commit": "0e6cad55b4acebe33f9a0227be53ebc269af9f50",
       "short": "0e6cad5",
@@ -39,26 +59,6 @@
       "score": 1353,
       "score_max": 2825,
       "path": "assets/results/dev/2026-06-25_cdf7c4a/table.html"
-    },
-    {
-      "channel": "dev",
-      "profile": "test",
-      "date": "2026-06-24",
-      "commit": "e634499c035a0ab1151842681e2caf74815cff3b",
-      "short": "e634499",
-      "rundefs": "test-autostub_valid-assert",
-      "generated": "2026-06-24T19:27:48+00:00",
-      "total": 10,
-      "correct": 10,
-      "correct_true": 0,
-      "correct_false": 10,
-      "incorrect": 0,
-      "incorrect_true": 0,
-      "incorrect_false": 0,
-      "unknown": 0,
-      "score": 10,
-      "score_max": 10,
-      "path": "assets/results/dev/2026-06-24_e634499/table.html"
     }
   ]
 }
