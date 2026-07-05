@@ -3,6 +3,26 @@
     {
       "channel": "dev",
       "profile": "full",
+      "date": "2026-07-04",
+      "commit": "e4965d6c70650578a4b6e3100b6699a930e75459",
+      "short": "e4965d6",
+      "rundefs": "SV-COMP27_valid-assert,SV-COMP27_no-runtime-exception",
+      "generated": "2026-07-05T12:00:26+00:00",
+      "total": 1782,
+      "correct": 933,
+      "correct_true": 457,
+      "correct_false": 476,
+      "incorrect": 2,
+      "incorrect_true": 0,
+      "incorrect_false": 2,
+      "unknown": 847,
+      "score": 1358,
+      "score_max": 2825,
+      "path": "assets/results/dev/2026-07-04_e4965d6/table.html"
+    },
+    {
+      "channel": "dev",
+      "profile": "full",
       "date": "2026-07-01",
       "commit": "54dd68d454cc8731bf992f30b14d481bdee17cd2",
       "short": "54dd68d",
@@ -39,26 +59,6 @@
       "score": 0,
       "score_max": 2825,
       "path": "assets/results/dev/2026-06-29_0e6cad5/table.html"
-    },
-    {
-      "channel": "dev",
-      "profile": "full",
-      "date": "2026-06-25",
-      "commit": "cdf7c4aaaf9fda64721e2884db0ffb7ec8e8010d",
-      "short": "cdf7c4a",
-      "rundefs": "SV-COMP27_valid-assert,SV-COMP27_no-runtime-exception",
-      "generated": "2026-06-26T12:23:54+00:00",
-      "total": 1782,
-      "correct": 930,
-      "correct_true": 455,
-      "correct_false": 475,
-      "incorrect": 2,
-      "incorrect_true": 0,
-      "incorrect_false": 2,
-      "unknown": 850,
-      "score": 1353,
-      "score_max": 2825,
-      "path": "assets/results/dev/2026-06-25_cdf7c4a/table.html"
     }
   ]
 }
