@@ -1,0 +1,6 @@
+{ "channel": "dev", "profile": "full", "date": "2026-07-14",
+  "commit": "4584107faf7904e84eb5295a254c7f5dea5ae844", "short": "4584107", "rundefs": "SV-COMP27_valid-assert,SV-COMP27_no-runtime-exception",
+  "generated": "2026-07-14T17:25:46+00:00",
+  "total": 1782, "correct": 916, "correct_true": 449, "correct_false": 467,
+  "incorrect": 2, "incorrect_true": 0, "incorrect_false": 2,
+  "unknown": 864, "score": 1333, "score_max": 2825 }
